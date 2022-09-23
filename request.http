@@ -2,8 +2,15 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username":"ducanh1",
-    "password":"yenbai"
+    "username":"ducanh",
+    "password":"namdinh"
 }   
 
-# GET http://localhost:5000/api/auth
+###
+post http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"ducanh",
+    "password":"namdinh"
+}
