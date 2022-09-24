@@ -20,7 +20,6 @@ router.get('/', verifyToken, async (req, res) => {
 // @route POST api/post
 // @desc create post
 // @access private
-//1h15p
 
 router.post('/', verifyToken, async (req, res) => {
     const { title, description, url, status } = req.body;
@@ -38,6 +37,40 @@ router.post('/', verifyToken, async (req, res) => {
         });
         await newPost.save();
         res.json({ success: true, message: 'Tạo post thành công', newPost });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// @route PUT api/post/:id
+// @desc update post
+// @access private
+
+router.put('/:id', verifyToken, async (req, res) => {
+    const { title, description, url, status } = req.body;
+    if (!title) {
+        res.status(400).json({ success: false, message: 'chưa có tiêu đề' });
+    }
+    try {
+        let updatedPost = {
+            title,
+            description: description || '',
+            url: (url.startsWith('https://') ? url : `https://${url}`) || '',
+            status: status || 'TO LEARN',
+        };
+
+        const postUpdateCondition = { _id: req.params.id, user: req.userId };
+        console.log(postUpdateCondition);
+        // req.params.id là giá trị id trên url
+        // user là user mà người dùng gửi req đấy( ở cái verifyToken ấy)
+
+        updatedPost = await Post.findOneAndUpdate(postUpdateCondition, updatedPost, { new: true });
+
+        if (!updatedPost) {
+            return res.status(401).json({ success: false, message: 'Post hoặc người dùng không tồn tại ' });
+        }
+        res.json({ success: true, message: 'Cập nhật post thành công', updatedPost });
     } catch (error) {
         console.log(error);
         res.status(500).json({ success: false, message: 'Internal server error' });

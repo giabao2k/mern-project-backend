@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     // Simple validation (xác nhận đơn giản)
     if (!username || !password) {
         return res.status(400).json({ success: false, message: 'không có username and/or password' });

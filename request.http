@@ -27,4 +27,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkN
 
 ###
 get http://localhost:5000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkOTA0OGY1YmNhYmU4ZDMwMTJkYjMiLCJpYXQiOjE2NjM5MzEzOTcsImV4cCI6MTY2Mzk2NzM5N30.RmzeMt6ZIeFaHQQyOm7sKTnvDhnxmGymZa2LQTV4eng
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzJkOWYyN2UwYWMzY2VkYTQ0MDhhYmEiLCJpYXQiOjE2NjM5OTQ4NDUsImV4cCI6MTY2NDAzMDg0NX0.mx0LYD19eo1r6HIN7yFJa7PZbTCuOG6dZ1MAYdxprxM
+
+###
+put http://localhost:5000/api/posts/632d9f8ce0ac3ceda4408ac1
+Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzJkOWYyN2UwYWMzY2VkYTQ0MDhhYmEiLCJpYXQiOjE2NjM5OTQ4NDUsImV4cCI6MTY2NDAzMDg0NX0.
+{   
+    "title":"ReactJS",
+    "description":"reactjs",
+    "url":"google.com",
+    "status":"LEARNING"
+}
