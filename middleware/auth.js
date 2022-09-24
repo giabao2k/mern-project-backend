@@ -12,7 +12,6 @@ const verifyToken = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
         req.userId = decoded.userId;
-        console.log(req.userId);
         next();
     } catch (error) {
         return res.status(403).json({ success: false, message: 'có token mà hàng lởm' });

@@ -13,7 +13,6 @@ const jwt = require('jsonwebtoken');
 
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    // console.log(req.body);
     // Simple validation (xác nhận đơn giản)
     if (!username || !password) {
         return res.status(400).json({ success: false, message: 'không có username and/or password' });
@@ -36,9 +35,7 @@ router.post('/register', async (req, res) => {
             process.env.SECRET_KEY,
             { expiresIn: 36000 },
         );
-        // console.log(accessToken);
         res.json({ success: true, message: 'đăng kí thành công', accessToken });
-        // console.log(newUser);
     } catch (error) {
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
@@ -76,7 +73,6 @@ router.post('/login', async (req, res) => {
                 { expiresIn: 36000 },
             );
             res.json({ success: true, message: 'người dùng đăng nhập thành công', accessToken });
-            // console.log(newUser);
         }
     } catch (error) {
         res.status(500).json({ success: false, message: 'Internal server error' });

@@ -38,7 +38,6 @@ router.post('/', verifyToken, async (req, res) => {
         await newPost.save();
         res.json({ success: true, message: 'Tạo post thành công', newPost });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
@@ -61,7 +60,7 @@ router.put('/:id', verifyToken, async (req, res) => {
         };
 
         const postUpdateCondition = { _id: req.params.id, user: req.userId };
-        console.log(postUpdateCondition);
+        // console.log(postUpdateCondition);
         // req.params.id là giá trị id trên url
         // user là user mà người dùng gửi req đấy( ở cái verifyToken ấy)
 
@@ -71,6 +70,23 @@ router.put('/:id', verifyToken, async (req, res) => {
             return res.status(401).json({ success: false, message: 'Post hoặc người dùng không tồn tại ' });
         }
         res.json({ success: true, message: 'Cập nhật post thành công', updatedPost });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// @route DELETE api/post/:id
+// @desc delete post
+// @access private
+
+router.delete('/:id', verifyToken, async (req, res) => {
+    try {
+        const postDeleteCondition = { _id: req.params.id, user: req.userId };
+        const deletedPost = await Post.findByIdAndDelete(postDeleteCondition);
+        if (!deletedPost) {
+            return res.status(401).json({ success: false, message: 'Post hoặc người dùng không tồn tại ' });
+        }
+        res.json({ success: true, post: deletedPost });
     } catch (error) {
         console.log(error);
         res.status(500).json({ success: false, message: 'Internal server error' });

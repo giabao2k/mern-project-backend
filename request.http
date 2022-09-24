@@ -15,27 +15,27 @@ Content-Type: application/json
     "password":"123"
 }
 ###
-post http://localhost:5000/api/posts
-Content-Type: "application/json"
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkNjAxMjJhYzA1Mzk0NTFmMzFjNmMiLCJpYXQiOjE2NjM5Mjk0NTcsImV4cCI6MTY2Mzk2NTQ1N30.u3S4G9497E5KsM5z8bqKUttf-gZORCCIeKGblS_zE98
-{   
-    "title":"hiss",
-    "description":"abc",
-    "url":"google.com",
-    "status":"LEARNING"
-}
+# post http://localhost:5000/api/posts
+# Content-Type: "application/json"
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkNjAxMjJhYzA1Mzk0NTFmMzFjNmMiLCJpYXQiOjE2NjM5Mjk0NTcsImV4cCI6MTY2Mzk2NTQ1N30.u3S4G9497E5KsM5z8bqKUttf-gZORCCIeKGblS_zE98
+# {   
+#     "title":"hiss",
+#     "description":"abc",
+#     "url":"google.com",
+#     "status":"LEARNING"
+# }
 
 ###
 get http://localhost:5000/api/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzJkOWYyN2UwYWMzY2VkYTQ0MDhhYmEiLCJpYXQiOjE2NjM5OTQ4NDUsImV4cCI6MTY2NDAzMDg0NX0.mx0LYD19eo1r6HIN7yFJa7PZbTCuOG6dZ1MAYdxprxM
 
 ###
-put http://localhost:5000/api/posts/632d9f8ce0ac3ceda4408ac1
-Content-Type: "application/json"
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzJkOWYyN2UwYWMzY2VkYTQ0MDhhYmEiLCJpYXQiOjE2NjM5OTQ4NDUsImV4cCI6MTY2NDAzMDg0NX0.
-{   
-    "title":"ReactJS",
-    "description":"reactjs",
-    "url":"google.com",
-    "status":"LEARNING"
-}
+# put http://localhost:5000/api/posts/632d9f8ce0ac3ceda4408ac1
+# Content-Type: "application/json"
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzJkOWYyN2UwYWMzY2VkYTQ0MDhhYmEiLCJpYXQiOjE2NjM5OTQ4NDUsImV4cCI6MTY2NDAzMDg0NX0.
+# {   
+#     "title":"ReactJS",
+#     "description":"reactjs",
+#     "url":"google.com",
+#     "status":"LEARNING"
+# }
