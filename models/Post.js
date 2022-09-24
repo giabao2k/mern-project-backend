@@ -16,8 +16,9 @@ const PostSchema = new Schema({
         type: String,
         enum: ['TO LEARN', 'LEARNING', 'LEARNED'],
     },
-    use: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: 'users',
     },
 });
+module.exports = mongoose.model('posts', PostSchema);

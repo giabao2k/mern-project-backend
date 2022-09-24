@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "username":"ducanh",
-    "password":"namdinh"
+    "password":"123"
 }   
 
 ###
@@ -11,6 +11,20 @@ post http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username":"ducanh",
-    "password":"namdinh"
+    "username":"giabao",
+    "password":"123"
 }
+###
+post http://localhost:5000/api/posts
+Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkNjAxMjJhYzA1Mzk0NTFmMzFjNmMiLCJpYXQiOjE2NjM5Mjk0NTcsImV4cCI6MTY2Mzk2NTQ1N30.u3S4G9497E5KsM5z8bqKUttf-gZORCCIeKGblS_zE98
+{   
+    "title":"hiss",
+    "description":"abc",
+    "url":"google.com",
+    "status":"LEARNING"
+}
+
+###
+get http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzJkOTA0OGY1YmNhYmU4ZDMwMTJkYjMiLCJpYXQiOjE2NjM5MzEzOTcsImV4cCI6MTY2Mzk2NzM5N30.RmzeMt6ZIeFaHQQyOm7sKTnvDhnxmGymZa2LQTV4eng

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 
 const authRouter = require('./routes/auth');
+const postRouter = require('./routes/post');
 
 const connectDB = async () => {
     try {
@@ -21,6 +22,7 @@ app.use(express.json()); // đọc username với password
 const PORT = 5000;
 
 app.use('/api/auth', authRouter);
+app.use('/api/posts', postRouter);
 app.get('/', (req, res) => res.send('hello world'));
 
 app.listen(PORT, () => {
